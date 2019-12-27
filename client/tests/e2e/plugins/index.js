@@ -7,12 +7,24 @@
 
 /* eslint-disable import/no-extraneous-dependencies, global-require, arrow-body-style */
 // const webpack = require('@cypress/webpack-preprocessor')
+const fs = require('fs');
+const path = require('path');
 
 module.exports = (on, config) => {
+
   // on('file:preprocessor', webpack({
   //  webpackOptions: require('@vue/cli-service/webpack.config'),
   //  watchOptions: {}
   // }))
+
+  on("task", {
+    getSchema() {
+      return fs.readFileSync(
+        path.resolve(__dirname, "../../../mocks/schema.graphql"),
+        "utf8"
+      );
+    }
+  });
 
   return Object.assign({}, config, {
     fixturesFolder: 'tests/e2e/fixtures',
