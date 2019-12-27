@@ -1,0 +1,16 @@
+type Mutation {
+  """
+  An example field added by the generator
+  """
+  testField: String!
+}
+
+type Query {
+  getTransactions: [Transaction]
+}
+
+type Transaction {
+  id: ID!
+  description: String!
+  amountInCents: Int!
+}
