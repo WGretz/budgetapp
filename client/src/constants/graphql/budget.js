@@ -6,6 +6,7 @@ query GetTransactions {
     id
     description
     amountInCents
+    purchasedOn
   }
 }
 `

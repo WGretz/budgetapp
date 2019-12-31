@@ -13,4 +13,7 @@ type Transaction {
   id: ID!
   description: String!
   amountInCents: Int!
+  purchasedOn: Date!
 }
+
+scalar Date
