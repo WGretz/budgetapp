@@ -1,19 +1,22 @@
+scalar Date
+
 type Mutation {
-  """
-  An example field added by the generator
-  """
-  testField: String!
+  createTransaction(attributes: TransactionAttributes!): Transaction!
 }
 
 type Query {
-  getTransactions: [Transaction]
+  getTransactions: [Transaction!]!
 }
 
 type Transaction {
-  id: ID!
-  description: String!
   amountInCents: Int!
-  purchasedOn: Date!
+  description: String!
+  id: Int!
+  purchasedOn: Date
 }
 
-scalar Date
+input TransactionAttributes {
+  amountInCents: Int!
+  description: String!
+  purchasedOn: String!
+}

@@ -7,7 +7,7 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
-Vue.filter('budgetToCurrency', filters.budgetToCurrency)
+Vue.filter('toCurrency', filters.toCurrency)
 
 new Vue({
   router,

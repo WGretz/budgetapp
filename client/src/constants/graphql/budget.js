@@ -10,3 +10,16 @@ query GetTransactions {
   }
 }
 `
+
+export const NEW_TRANSACTION_MUTATION = gql`
+mutation MakeTransaction( $attributes: TransactionAttributes! ) {
+  createTransaction (
+    attributes: $attributes
+  ) {
+    id
+    description
+    amountInCents
+    purchasedOn
+  }
+}
+`

@@ -3,22 +3,46 @@
 exports[`Ledger\`.vue renders props.msg when passed 1`] = `
 <div>
   <table>
-    <tr>
-      <td>
-        Betelgeuse's Bakery For The Recently deceased
+    <tr
+      data-cy="transaction-row"
+    >
+      <td
+        data-cy="transaction-date"
+      >
+        2019-11-05
       </td>
        
-      <td>
-        -$9.99
-      </td>
-    </tr>
-    <tr>
-      <td>
+      <td
+        data-cy="transaction-description"
+      >
         CBGBs
       </td>
        
-      <td>
+      <td
+        data-cy="transaction-amount"
+      >
         -$42.69
+      </td>
+    </tr>
+    <tr
+      data-cy="transaction-row"
+    >
+      <td
+        data-cy="transaction-date"
+      >
+        2019-10-31
+      </td>
+       
+      <td
+        data-cy="transaction-description"
+      >
+        Betelgeuse's Bioexorcism
+      </td>
+       
+      <td
+        data-cy="transaction-amount"
+      >
+        -$9.99
       </td>
     </tr>
   </table>
