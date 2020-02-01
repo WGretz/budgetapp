@@ -1,0 +1,44 @@
+<table>
+  <% @transactions.each do |transaction| %>
+    <tr data-target="#transactionForm<%= transaction.id %>" data-toggle="collapse" class="accordion-toggle">
+      <td><%= transaction.purchased_on %></td>
+      <td><%= transaction.description %></td>
+      <td><%= number_to_currency transaction.amount_in_cents / 100.0 %></td>
+      <td><%= transaction.category&.name %></td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <%= form_for transaction, html: { id: "transactionForm#{transaction.id}", class: "accordian-body collapse" } do |f| %>
+          <%= hidden_field_tag :page, params[:page] %>
+          <div class="row">
+            <div class="col-8">
+              <div class="row">
+                <div class="col-12 form-group">
+                  <%= f.label :description, "Description" %>
+                  <%= f.text_field :description, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 form-group">
+                  <%= f.label( :category_id, 'Category') %>
+                  <%= f.select( :category_id, [["Uncategorized", nil]] + Category.all.order(:name).map { |c| [c.name, c.id] }, {}, class: 'form-control') %>
+                </div>
+                <div>
+                  <%= f.submit %>
+                </div>
+              </div>
+            </div>
+            <div>
+              <b>Possible Corrections:</b><br />
+              <ul>
+                <% (@possible_corrections[transaction.original_description] || [])[0..5].each do |k, _v| %>
+                  <li><%= k[1] %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

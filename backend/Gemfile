@@ -42,4 +42,6 @@ group :development do
 end
 
 gem 'graphql'
+gem 'kaminari'
+gem 'ofx'
 gem 'rack-cors'

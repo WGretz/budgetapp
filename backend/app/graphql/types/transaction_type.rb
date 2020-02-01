@@ -6,6 +6,7 @@ module Types
     field :description, type: String, null: false
     field :amount_in_cents, type: Integer, null: false
     field :purchased_on, type: Types::Date, null: true
+    field :account_id, type: Integer, null: true
 
   end
 end

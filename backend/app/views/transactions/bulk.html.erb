@@ -1,0 +1,42 @@
+<%= form_tag({}, {method: :get}) do %>
+  <%= text_field_tag(:filter, params[:filter]) %>
+  <%= hidden_field_tag(:page, nil) %>
+  <%= select_tag(:category_id, options_for_select(
+    [["-- Select a Category -- ", nil], ["Uncategorized", "N/A"]] +
+      (Category.all.order(:name).map { |c| [c.name, c.id] }),
+    params[:category_id])) %>
+  <%= submit_tag %>
+<% end %>
+<%= form_tag({}, { method: :put }) do %>
+  <%= hidden_field_tag(:page, params[:page]) %>
+  <%= hidden_field_tag(:filter, params[:filter]) %>
+  <%= hidden_field_tag(:category_id, params[:category_id]) %>
+  <table>
+    <% @transactions.each do |t| %>
+      <tr>
+        <td><%= t.purchased_on %></td>
+        <td><%= select(
+          "transactions[#{ t.id}]",
+          :category_id,
+           options_for_select(
+            ([["Uncategorized", nil]] + Category.all.order(:name).map { |c| [c.name, c.id] }),
+            t.category_id
+          ),
+          {},
+          class: 'form-control'
+        ) %></td>
+        <td>
+          <%= text_field_tag "transactions[#{ t.id}][description]", t.description %>
+        </td>
+        <td><%= number_to_currency t.amount_in_cents / 100.0 %></td>
+      </tr>
+      <% if @possible_corrections[t.original_description] && @possible_corrections[t.original_description][0][0][1] != t.description && t.description == t.original_description %>
+      <tr>
+        <td colspan="4"><%= @possible_corrections[t.original_description][0][0][1] %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+  <%= submit_tag "Update" %>
+<% end %>
+<%= paginate @transactions %>

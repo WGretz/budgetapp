@@ -1,0 +1,46 @@
+<table class="spending">
+  <tr>
+    <% total = @spending.values.inject(0) { |a,b| a + b } %>
+    <% total_this_year = @spending_this_year.values.inject(0) { |a,b| a + b } %>
+    <th></th>
+    <th>Total</th>
+    <th>This Year</th>
+    <th>This Month</th>
+    <th>This Paycheck</th>
+    <th>Last Year</th>
+    <th>Last Month</th>
+  </tr>
+  <% @categories.each do |cata| %>
+    <tr>
+      <th> <%= cata.name %> </th>
+      <td>
+        <span title="<%= number_to_currency (@spending[cata.id] || 0)/100.0 %>">
+          <%=  sprintf '%.2f', (((@spending[cata.id] || 0)/total.to_f) * 100) %>%
+        </span>
+      </td>
+      <td>
+        <span title="<%= number_to_currency (@spending_this_year[cata.id] || 0)/100.0 %>">
+          <%=  sprintf '%.2f', (((@spending_this_year[cata.id] || 0)/total_this_year.to_f) * 100) %>%
+        </span>
+      </td>
+    </tr>
+  <% end %>
+  <tr>
+    <th>Uncategorized</th>
+      <td>
+        <span data-toggle="tooltip" data-placement="top" title="<%= number_to_currency (@spending[nil] || 0)/100.0 %>">
+          <%=  sprintf '%.2f', (((@spending[nil] || 0)/total.to_f) * 100) %>%
+        </span>
+      </td>
+      <td>
+        <span title="<%= number_to_currency (@spending_this_year[nil ] || 0)/100.0 %>">
+          <%=  sprintf '%.2f', (((@spending_this_year[nil] || 0)/total_this_year.to_f) * 100) %>%
+        </span>
+      </td>
+  </tr>
+  <tr>
+    <th>Total</th>
+    <th><%= number_to_currency total/100.0 %></th>
+    <th><%= number_to_currency total_this_year/100.0 %></th>
+  </tr>
+</table>
