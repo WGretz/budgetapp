@@ -2,6 +2,143 @@
 
 exports[`Ledger\`.vue renders props.msg when passed 1`] = `
 <div>
+  <form>
+    <div
+      class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--placeholder"
+    >
+      <div
+        class="v-input__control"
+      >
+        <div
+          class="v-input__slot"
+        >
+          <div
+            class="v-text-field__slot"
+          >
+            <label
+              class="v-label v-label--active theme--light"
+              for="input-2"
+              style="right: 0px; position: absolute;"
+            >
+              Purchased On
+            </label>
+            <input
+              data-cy="transaction-date"
+              id="input-2"
+              placeholder="10-22-2019"
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="v-text-field__details"
+        >
+          <div
+            class="v-messages theme--light"
+          >
+            <span
+              class="v-messages__wrapper"
+              name="message-transition"
+              tag="div"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="v-input theme--light v-text-field v-text-field--placeholder"
+    >
+      <div
+        class="v-input__control"
+      >
+        <div
+          class="v-input__slot"
+        >
+          <div
+            class="v-text-field__slot"
+          >
+            <label
+              class="v-label v-label--active theme--light"
+              for="input-5"
+              style="right: 0px; position: absolute;"
+            >
+              Description
+            </label>
+            <input
+              data-cy="transaction-description"
+              id="input-5"
+              placeholder="Chevron"
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="v-text-field__details"
+        >
+          <div
+            class="v-messages theme--light"
+          >
+            <span
+              class="v-messages__wrapper"
+              name="message-transition"
+              tag="div"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field v-text-field--placeholder"
+    >
+      <div
+        class="v-input__control"
+      >
+        <div
+          class="v-input__slot"
+        >
+          <div
+            class="v-text-field__slot"
+          >
+            <label
+              class="v-label v-label--active theme--light"
+              for="input-8"
+              style="right: 0px; position: absolute;"
+            >
+              Price
+            </label>
+            <input
+              data-cy="transaction-amount"
+              id="input-8"
+              placeholder="-6.90"
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="v-text-field__details"
+        >
+          <div
+            class="v-messages theme--light"
+          >
+            <span
+              class="v-messages__wrapper"
+              name="message-transition"
+              tag="div"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <input
+      data-cy="transaction-submit"
+      type="button"
+      value="Create Transaction"
+    />
+  </form>
+   
   <table>
     <tr
       data-cy="transaction-row"
@@ -9,7 +146,7 @@ exports[`Ledger\`.vue renders props.msg when passed 1`] = `
       <td
         data-cy="transaction-date"
       >
-        2019-11-05
+        11/05/2019
       </td>
        
       <td
@@ -30,7 +167,7 @@ exports[`Ledger\`.vue renders props.msg when passed 1`] = `
       <td
         data-cy="transaction-date"
       >
-        2019-10-31
+        10/31/2019
       </td>
        
       <td

@@ -7,6 +7,7 @@ query GetTransactions {
     description
     amountInCents
     purchasedOn
+    accountId
   }
 }
 `
@@ -20,6 +21,16 @@ mutation MakeTransaction( $attributes: TransactionAttributes! ) {
     description
     amountInCents
     purchasedOn
+    accountId
+  }
+}
+`
+
+export const GET_ACCOUNTS_QUERY = gql`
+query GetAccounts {
+  getAccounts {
+    id
+    name
   }
 }
 `

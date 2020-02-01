@@ -1,3 +1,8 @@
+type Account {
+  id: Int!
+  name: String!
+}
+
 scalar Date
 
 type Mutation {
@@ -5,10 +10,12 @@ type Mutation {
 }
 
 type Query {
-  getTransactions: [Transaction!]!
+  getAccounts: [Account!]
+  getTransactions: [Transaction!]
 }
 
 type Transaction {
+  accountId: Int
   amountInCents: Int!
   description: String!
   id: Int!
@@ -16,6 +23,7 @@ type Transaction {
 }
 
 input TransactionAttributes {
+  accountId: Int!
   amountInCents: Int!
   description: String!
   purchasedOn: String!
