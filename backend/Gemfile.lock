@@ -92,7 +92,7 @@ GEM
     ofx (0.3.2)
       nokogiri
     puma (3.12.2)
-    rack (2.0.8)
+    rack (2.2.3)
     rack-cors (1.1.0)
       rack (>= 2.0.0)
     rack-test (1.1.0)
