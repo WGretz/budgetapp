@@ -91,7 +91,8 @@ GEM
       mini_portile2 (~> 2.4.0)
     ofx (0.3.2)
       nokogiri
-    puma (3.12.2)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.0.8)
     rack-cors (1.1.0)
       rack (>= 2.0.0)
@@ -173,7 +174,7 @@ DEPENDENCIES
   kaminari
   listen (>= 3.0.5, < 3.2)
   ofx
-  puma (~> 3.11)
+  puma (~> 4.3)
   rack-cors
   rails (~> 5.2.4)
   rspec-rails
